@@ -5,11 +5,9 @@ Use Promise Proxy ( Proxise ) for easily resolving promises outside the Promise 
 
 ## Usage
 
-    ```
     somefunc = proxise (params) -> if (ready) => return Promise.resolve('some value')
     somefunc params .then (v) -> /* doing something ... */
     somefunc.resolve 'some value'
-    ```
 
 Proxise use the return value inside the proxise function to decide how things work:
 
@@ -19,11 +17,9 @@ Proxise use the return value inside the proxise function to decide how things wo
 
 Proxise is quite helpful for resolving promise outside the promise function, for example, by user interaction:
 
-    ```
     until-user-click = proxise ->
     until-user-click!then -> console.log \user-clicked.
     document.body.addEventListner \click, -> until-user-click.resolve!
-    ```
 
 
 ## License

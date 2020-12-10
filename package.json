@@ -1,7 +1,10 @@
 {
-  "author": "Kirby Wu",
+  "author": "zbryikt",
   "name": "proxise",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "description": "Proxy for Promise",
   "version": "0.0.1",
   "homepage": "https://github.com/loadingio/proxise",
@@ -10,11 +13,11 @@
     "url": "https://github.com/loadingio/proxise"
   },
   "engines": {
-    "node": ">=0.12.6",
-    "npm": ">=1.2.2"
+    "node": ">=10.14.1",
+    "npm": ">=6.4.1"
   },
   "devDependencies": {
-    "LiveScript": ">=1.2.0",
+    "livescript": ">=1.6.0",
     "uglify-js": "=3.2.0"
   }
 }

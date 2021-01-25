@@ -51,6 +51,28 @@
     };
     return ret;
   };
+  proxise.once = function(cb){
+    var lc, ret;
+    lc = {};
+    return ret = proxise(function(){
+      if (lc.inited) {
+        return Promise.resolve();
+      }
+      if (lc.initing) {
+        return;
+      }
+      lc.initing = true;
+      return cb()['finally'](function(){
+        return lc.initing = false;
+      }).then(function(){
+        return lc.inited = true;
+      }).then(function(){
+        return ret.resolve();
+      })['catch'](function(it){
+        return ret.reject(it);
+      });
+    });
+  };
   if (typeof module != 'undefined' && module !== null) {
     module.exports = proxise;
   }

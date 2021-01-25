@@ -22,6 +22,33 @@ Proxise is quite helpful for resolving promise outside the promise function, for
     document.body.addEventListner \click, -> until-user-click.resolve!
 
 
+## proxise.once
+
+proxise is also useful for waiting until sutff gets intiailized. In this scenario, we need:
+
+ - wrapped function is run for at most once.
+ - every invocation of the wrapped function will be resolved after successful run of the wrapped function.
+
+You can simply use `proxise.once` to achieve this effect.
+
+For example,
+
+    init = proxise.once -> alert("this alert shall only popup once.")
+
+is equivalent to
+
+    _init = -> alert("this alert shall only popup once.")
+    init = proxise ->
+      if init.inited => return Promise.resolve!
+      if init.initing => return
+      Promise.resolve!
+        .then -> _init!
+        .finally -> init.initing = false
+        .then -> init.inited = true
+        .then -> init.resolve!
+        .catch -> init.reject it
+
+
 ## License
 
 MIT

@@ -19,6 +19,18 @@
     ret.reject = (v) -> _ q, v, \rej
     return ret
 
+  proxise.once = (cb) ->
+    lc = {}
+    ret = proxise ->
+      if lc.inited => return Promise.resolve!
+      if lc.initing => return
+      lc.initing = true
+      cb!
+        .finally -> lc.initing = false
+        .then -> lc.inited = true
+        .then -> ret.resolve!
+        .catch -> ret.reject it
+
   if module? => module.exports = proxise
   if window? => window.proxise = proxise
 )!

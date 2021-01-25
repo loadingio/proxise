@@ -62,7 +62,9 @@
         return;
       }
       lc.initing = true;
-      return cb()['finally'](function(){
+      return Promise.resolve().then(function(){
+        return cb();
+      })['finally'](function(){
         return lc.initing = false;
       }).then(function(){
         return lc.inited = true;

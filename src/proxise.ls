@@ -25,7 +25,8 @@
       if lc.inited => return Promise.resolve!
       if lc.initing => return
       lc.initing = true
-      cb!
+      Promise.resolve!
+        .then -> cb!
         .finally -> lc.initing = false
         .then -> lc.inited = true
         .then -> ret.resolve!

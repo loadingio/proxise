@@ -30,7 +30,12 @@
         .finally -> lc.initing = false
         .then -> lc.inited = true
         .then -> ret.resolve!
-        .catch -> ret.reject it
+        .catch ->
+          # notify all pending promise about this failure
+          ret.reject it
+          # caller itself is not in the promise queue so won't be notified by ret.reject(it).
+          # we have to reject again to notify caller about this failure.
+          Promise.reject it
 
   if module? => module.exports = proxise
   if window? => window.proxise = proxise

@@ -71,7 +71,8 @@
       }).then(function(){
         return ret.resolve();
       })['catch'](function(it){
-        return ret.reject(it);
+        ret.reject(it);
+        return Promise.reject(it);
       });
     });
   };

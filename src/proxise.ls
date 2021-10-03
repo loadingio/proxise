@@ -19,17 +19,19 @@
     ret.reject = (v) -> _ q, v, \rej
     return ret
 
-  proxise.once = (cb) ->
+  proxise.once = (cb, v) ->
     lc = {}
     ret = proxise ->
-      if lc.inited => return Promise.resolve!
+      if lc.inited => return Promise.resolve(if !(v?) => lc.val else if typeof(v) == \function => v! else v)
       if lc.initing => return
       lc.initing = true
       Promise.resolve!
         .then -> cb!
         .finally -> lc.initing = false
-        .then -> lc.inited = true
-        .then -> ret.resolve!
+        .then (val) ->
+          lc.inited = true
+          ret.resolve(val = if !(v?) => lc.val = val else if typeof(v) == \function => v! else v)
+          return val
         .catch ->
           # notify all pending promise about this failure
           ret.reject it

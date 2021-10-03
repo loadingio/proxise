@@ -1,5 +1,11 @@
 # Change Logs
 
+## v0.1.3
+
+ - resolve original return value for proxise.once.
+ - accept additional optional option in proxise.once for alternative resolved value
+
+
 ## v0.1.2
 
  - bug fix: when proxise.once fails, promise for caller is still resolved instead of rejected.

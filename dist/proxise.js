@@ -51,12 +51,14 @@
     };
     return ret;
   };
-  proxise.once = function(cb){
+  proxise.once = function(cb, v){
     var lc, ret;
     lc = {};
     return ret = proxise(function(){
       if (lc.inited) {
-        return Promise.resolve();
+        return Promise.resolve(!(v != null)
+          ? lc.val
+          : typeof v === 'function' ? v() : v);
       }
       if (lc.initing) {
         return;
@@ -66,10 +68,12 @@
         return cb();
       })['finally'](function(){
         return lc.initing = false;
-      }).then(function(){
-        return lc.inited = true;
-      }).then(function(){
-        return ret.resolve();
+      }).then(function(val){
+        lc.inited = true;
+        ret.resolve(val = !(v != null)
+          ? lc.val = val
+          : typeof v === 'function' ? v() : v);
+        return val;
       })['catch'](function(it){
         ret.reject(it);
         return Promise.reject(it);

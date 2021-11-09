@@ -1,5 +1,12 @@
 # Change Logs
 
+## v0.1.4
+
+ - reduce minimized js size with mangle + compress in uglifyjs
+ - wrap js with compiler option
+ - dont populate window if module is defined
+
+
 ## v0.1.3
 
  - resolve original return value for proxise.once.

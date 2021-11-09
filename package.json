@@ -6,7 +6,7 @@
     "dist/**/*"
   ],
   "description": "Proxy for Promise",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/loadingio/proxise",
   "repository": {
     "type": "git",

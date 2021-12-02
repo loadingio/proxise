@@ -1,5 +1,11 @@
 # Change Logs
 
+## v0.1.5
+
+ - fix bug: scope of proxise.once should still be object instead of window.
+ - fix bug: proxise.once should pass options into callback function yet it doesn't
+
+
 ## v0.1.4
 
  - reduce minimized js size with mangle + compress in uglifyjs

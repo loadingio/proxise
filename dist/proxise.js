@@ -54,6 +54,12 @@
     var lc, ret;
     lc = {};
     return ret = proxise(function(){
+      var args, res$, i$, to$, this$ = this;
+      res$ = [];
+      for (i$ = 0, to$ = arguments.length; i$ < to$; ++i$) {
+        res$.push(arguments[i$]);
+      }
+      args = res$;
       if (lc.inited) {
         return Promise.resolve(!(v != null)
           ? lc.val
@@ -64,7 +70,7 @@
       }
       lc.initing = true;
       return Promise.resolve().then(function(){
-        return cb();
+        return cb.apply(this$, args);
       })['finally'](function(){
         return lc.initing = false;
       }).then(function(val){

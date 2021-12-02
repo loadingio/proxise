@@ -20,12 +20,12 @@ proxise = (a,b) ->
 
 proxise.once = (cb, v) ->
   lc = {}
-  ret = proxise ->
+  ret = proxise (...args) ->
     if lc.inited => return Promise.resolve(if !(v?) => lc.val else if typeof(v) == \function => v! else v)
     if lc.initing => return
     lc.initing = true
     Promise.resolve!
-      .then -> cb!
+      .then ~> cb.apply @, args
       .finally -> lc.initing = false
       .then (val) ->
         lc.inited = true

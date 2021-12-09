@@ -1,5 +1,16 @@
 # Change Logs
 
+## v1.0.0 (upcoming)
+
+ - remove `proxise.js`, `proxise.min.js` but keeping `index.js`, `index.min.js`
+
+
+## v0.1.6
+
+ - make it work with nodejs
+ - rename `proxise.js` to `index.js` but keep the deprecated `proxise.js`.
+
+
 ## v0.1.5
 
  - fix bug: scope of proxise.once should still be object instead of window.

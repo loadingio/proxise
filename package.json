@@ -2,11 +2,13 @@
   "author": "zbryikt",
   "name": "proxise",
   "license": "MIT",
+  "browser": "dist/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/**/*"
   ],
   "description": "Proxy for Promise",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/loadingio/proxise",
   "repository": {
     "type": "git",

@@ -4,6 +4,7 @@
 
  - remove `proxise.js`, `proxise.min.js` but keeping `index.js`, `index.min.js`
  - use minimized dist file as main / browser default file
+ - update dev dependencies
 
 
 ## v0.1.6

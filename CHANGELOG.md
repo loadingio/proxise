@@ -3,6 +3,7 @@
 ## v1.0.0 (upcoming)
 
  - remove `proxise.js`, `proxise.min.js` but keeping `index.js`, `index.min.js`
+ - use minimized dist file as main / browser default file
 
 
 ## v0.1.6

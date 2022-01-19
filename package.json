@@ -2,8 +2,8 @@
   "author": "zbryikt",
   "name": "proxise",
   "license": "MIT",
-  "browser": "dist/index.js",
-  "main": "dist/index.js",
+  "browser": "dist/index.min.js",
+  "main": "dist/index.min.js",
   "files": [
     "dist/**/*"
   ],

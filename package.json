@@ -8,7 +8,7 @@
     "dist/**/*"
   ],
   "description": "Proxy for Promise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/loadingio/proxise",
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "npm": ">=6.4.1"
   },
   "devDependencies": {
+    "fedep": "^1.1.0",
     "livescript": ">=1.6.0",
     "uglify-js": "^3.13.1"
   }

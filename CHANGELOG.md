@@ -1,5 +1,10 @@
 # Change Logs
 
+## v1.0.1
+
+ - release with compact directory structure
+
+
 ## v1.0.0
 
  - remove `proxise.js`, `proxise.min.js` but keeping `index.js`, `index.min.js`

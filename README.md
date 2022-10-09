@@ -49,6 +49,11 @@ is equivalent to
         .catch -> init.reject it
 
 
+Additionally, you can ask the inited function to return a specific value by the second option:
+
+    init = proxise.once (->), (-> "return me") 
+
+
 ## License
 
 MIT
